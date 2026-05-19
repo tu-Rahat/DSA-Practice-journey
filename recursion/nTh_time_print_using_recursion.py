@@ -1,5 +1,5 @@
 def func(n):
-    if n == -1:
+    if n == 0:         # stopping condition
          return 
     print("Hello, World!")
     func(n-1) 
