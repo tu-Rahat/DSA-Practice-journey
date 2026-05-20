@@ -26,9 +26,21 @@ def head_backprint(m,n):
         print(f"{n}--",end="") 
         head_backprint(m,n-1) 
 
+def summation(m,n,sum):
+    if m == n:
+        print(sum) 
+        return 
+    sum = sum + m
+    summation(m+1,n,sum)
+
+
+
+
 m,n = [int(x) for x in input("2 number and space,ex: 1 10 :>").split(" ")] 
 while True:
-    option = int(input("choose between 1 to 3: "))
+    x= "1: Iteration from m to n\n2:Reverse Print n to m using tail\n3:Reverse print using n to m using head\n4:Print summation"
+    print(x)
+    option = int(input("choose between 1 to 4: "))
     print()
     if option == 1:
         printing(m,n)
@@ -38,6 +50,10 @@ while True:
         print()
     elif option == 3:
         head_backprint(m,n) 
+        print()
+    elif option == 4:
+
+        summation(m,n,0)
         print()
     else:
         print("Exit....")
