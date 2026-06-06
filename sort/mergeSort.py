@@ -1,5 +1,5 @@
 def dnc(arr):
-    if len(arr)==1:
+    if len(arr)==1 or len(arr) ==0:
         return arr
     
     midd = len(arr)//2
@@ -10,27 +10,34 @@ def dnc(arr):
 
     l = len(left_arr)
     r = len(right_arr) 
-    i,j,k = 0
+    i,j = 0,0
     result = []
     while i<l and j<r:
         if left_arr[i]<=right_arr[j]:
-            result[k] = left_arr[i]
+            result.append(left_arr[i])
             i = i + 1
-            k = k + 1
+        
         else: 
-            result[k] = right_arr[j]
+            result.append(right_arr[j]) 
             j = j + 1
-            k = k + 1
+    print(f"left{left_arr}--Right{right_arr}--result{result}")
+
     while i>=l and j<r:
-        result[k] = right_arr[j]
+        result.append(right_arr[j])
         j = j + 1
-        k = k + 1
+    print(f"left{left_arr}--Right{right_arr}--result{result}")
+        
     while i<l and j >=r:
-        result[k] = left_arr[i]
+        result.append(left_arr[i]) 
         i = i + 1
-        k = k + 1
+    print(f"left{left_arr}--Right{right_arr}--result{result}")  # Just for debugging
     return result
 
-arr = [5,4,3,2,1]
-dnc(arr) 
+arr = [4,3,3,2,1,0]
+arr = dnc(arr) 
 print(arr)
+
+'''
+O(t) = NlogN
+O(space) = N , It creates new list 
+'''
